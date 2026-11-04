@@ -1,0 +1,16 @@
+name: Build mod jar
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    uses: FormlessDragon/.github/.github/workflows/build-mdg.yml@main
+    secrets: inherit
+    permissions:
+      contents: write
