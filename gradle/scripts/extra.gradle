@@ -6,6 +6,11 @@ import java.util.zip.ZipEntry
 import java.util.zip.ZipFile
 import java.util.zip.ZipOutputStream
 
+tasks.withType(Javadoc).configureEach {
+    // Both dev sync tasks write directories on the Javadoc classpath.
+    dependsOn tasks.named('syncDevResourcesToClasses'), tasks.named('syncDevClassesToResources')
+}
+
 def minecraftVersion = '1.12.2'
 def cleanroomVersion = '0.6.13-alpha'
 
