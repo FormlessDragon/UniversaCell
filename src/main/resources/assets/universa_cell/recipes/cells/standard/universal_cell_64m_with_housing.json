@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "megacells"
+    }
+  ],
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "universa_cell:mega_universal_cell_housing"
+    },
+    {
+      "item": "megacells:cell_component_64m"
+    }
+  ],
+  "result": {
+    "item": "universa_cell:universal_cell_64m",
+    "count": 1
+  }
+}

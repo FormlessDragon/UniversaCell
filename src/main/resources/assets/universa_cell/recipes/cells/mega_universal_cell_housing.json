@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "megacells"
+    }
+  ],
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "aba",
+    "b b",
+    "ddd"
+  ],
+  "key": {
+    "a": {
+      "item": "ae2:quartz_vibrant_glass"
+    },
+    "b": {
+      "item": "ae2:sky_dust"
+    },
+    "d": {
+      "item": "universa_cell:convergent_crystal"
+    }
+  },
+  "result": {
+    "item": "universa_cell:mega_universal_cell_housing",
+    "count": 1
+  }
+}

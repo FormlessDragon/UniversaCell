@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "ae2:chest"
+    },
+    {
+      "item": "ae2:cell_component_16k"
+    },
+    {
+      "item": "ae2:energy_cell"
+    },
+    {
+      "item": "universa_cell:universal_cell_housing"
+    }
+  ],
+  "result": {
+    "item": "universa_cell:portable_universal_cell_16k",
+    "count": 1
+  }
+}

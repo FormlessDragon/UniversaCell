@@ -1,0 +1,27 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "megacells"
+    }
+  ],
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "ae2:chest"
+    },
+    {
+      "item": "megacells:cell_component_64m"
+    },
+    {
+      "item": "ae2:dense_energy_cell"
+    },
+    {
+      "item": "universa_cell:mega_universal_cell_housing"
+    }
+  ],
+  "result": {
+    "item": "universa_cell:portable_universal_cell_64m",
+    "count": 1
+  }
+}

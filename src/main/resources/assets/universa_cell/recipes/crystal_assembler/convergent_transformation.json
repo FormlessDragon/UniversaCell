@@ -1,0 +1,36 @@
+{
+  "type": "ae2:crystal_assembler",
+  "input_fluid": {
+    "amount": 100,
+    "ingredient": {
+      "fluid": "lava"
+    }
+  },
+  "input_items": [
+    {
+      "amount": 4,
+      "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "dustEntro"
+      }
+    },
+    {
+      "amount": 4,
+      "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "dustEnderPearl"
+      }
+    },
+    {
+      "amount": 4,
+      "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "gemFluix"
+      }
+    }
+  ],
+  "output": {
+    "item": "universa_cell:convergent_crystal",
+    "count": 8
+  }
+}

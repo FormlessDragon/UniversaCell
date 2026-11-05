@@ -1,0 +1,13 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "megacells"
+    }
+  ],
+  "type": "ae2:storage_cell_upgrade",
+  "input_cell": "universa_cell:universal_cell_256k",
+  "input_component": "megacells:cell_component_64m",
+  "result_cell": "universa_cell:universal_cell_64m",
+  "result_component": "ae2:cell_component_256k"
+}

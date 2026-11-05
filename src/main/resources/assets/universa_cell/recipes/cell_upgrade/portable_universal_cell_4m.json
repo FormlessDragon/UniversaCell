@@ -1,0 +1,28 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "megacells"
+    }
+  ],
+  "type": "ae2:storage_cell_disassembly",
+  "cell": "universa_cell:portable_universal_cell_4m",
+  "cell_disassembly_items": [
+    {
+      "count": 1,
+      "id": "ae2:chest"
+    },
+    {
+      "count": 1,
+      "id": "megacells:cell_component_4m"
+    },
+    {
+      "count": 1,
+      "id": "ae2:dense_energy_cell"
+    },
+    {
+      "count": 1,
+      "id": "universa_cell:mega_universal_cell_housing"
+    }
+  ]
+}

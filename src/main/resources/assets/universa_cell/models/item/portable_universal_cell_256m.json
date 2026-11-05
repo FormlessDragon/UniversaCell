@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "universa_cell:items/portable_universal_cell_256m"
+  }
+}

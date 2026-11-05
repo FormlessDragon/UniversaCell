@@ -1,6 +1,11 @@
 // You may write any Gradle buildscript component in this file.
 // This file is automatically applied after build.gradle + dependencies.gradle.
 
+import java.io.FileOutputStream
+import java.util.zip.ZipEntry
+import java.util.zip.ZipFile
+import java.util.zip.ZipOutputStream
+
 def minecraftVersion = '1.12.2'
 def cleanroomVersion = '0.6.13-alpha'
 
@@ -20,9 +25,9 @@ def runtimeTestProductionMods = configurations.maybeCreate('runtimeTestProductio
 runtimeTestProductionMods.canBeConsumed = false
 runtimeTestProductionMods.canBeResolved = true
 runtimeTestProductionMods.extendsFrom(
-    configurations.getByName('modImplementation'),
-    configurations.getByName('modRuntimeOnly'),
-    configurations.getByName('modApi')
+    configurations.named('modImplementation').get(),
+    configurations.named('modRuntimeOnly').get(),
+    configurations.named('modApi').get()
 )
 def mappingsAttribute = Attribute.of(
     'com.gtnewhorizons.retrofuturagradle.obfuscation',
@@ -85,7 +90,7 @@ def remappedRuntimeTestModsDir =
 def isNamedMinecraftJar = { File jar ->
     def srgNames = new HashSet<String>()
     def mcRefs = new HashSet<String>()
-    def zf = new java.util.zip.ZipFile(jar)
+    def zf = new ZipFile(jar)
     try {
         zf.entries().each { entry ->
             if (!entry.name.endsWith('.class')) {
@@ -151,6 +156,7 @@ def rewriteAccessTransformer = { File mappingFile, String text ->
                 methods[parts[0] + ' ' + parts[1]] = parts[2] + ' ' + parts[3]
             }
         }
+        return
     }
     def out = new StringBuilder()
     text.split('\r?\n', -1).each { String raw ->
@@ -181,13 +187,14 @@ def rewriteAccessTransformer = { File mappingFile, String text ->
         }
         out.append(prefix).append(dotted).append(gap).append(renamed)
             .append(comment).append('\n')
+        return
     }
     out.toString()
 }
 def rewriteAccessTransformersInJar = { File mappingFile, File jar ->
     def entries = [:]
     def order = []
-    def source = new java.util.zip.ZipFile(jar)
+    def source = new ZipFile(jar)
     try {
         source.entries().each { entry ->
             if (entry.directory) {
@@ -216,13 +223,13 @@ def rewriteAccessTransformersInJar = { File mappingFile, File jar ->
             !it.endsWith('_at.cfg') }) {
         return false
     }
-    def target = new java.util.zip.ZipOutputStream(
-        new java.io.FileOutputStream(jar)
+    def target = new ZipOutputStream(
+        new FileOutputStream(jar)
     )
     try {
         order.each { name ->
             def bytes = entries[name]
-            def entry = new java.util.zip.ZipEntry(name)
+            def entry = new ZipEntry(name)
             entry.time = 0L
             target.putNextEntry(entry)
             target.write(bytes as byte[])
@@ -235,7 +242,7 @@ def rewriteAccessTransformersInJar = { File mappingFile, File jar ->
 }
 
 afterEvaluate {
-    def remapJarType = tasks.getByName('reobfJar').class
+    def remapJarType = tasks.named('reobfJar').get().class
     namedRuntimeTestJars().each { jar ->
         namedRuntimeTestRemapTasks << tasks.register(
             'runtimeTestRemap' + jar.name.replaceAll('[^A-Za-z0-9]', '_'),
@@ -485,6 +492,7 @@ if (curseforgeProjectId != null && !curseforgeProjectId.toString().isBlank()) {
         if (!slugs.isEmpty()) {
             curseforgeRelations.put(relationType, slugs)
         }
+        return null
     }
 
     def curseforgeChangelogFile = null

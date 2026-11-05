@@ -1,0 +1,30 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "aba",
+    "bcb",
+    "ded"
+  ],
+  "key": {
+    "a": {
+      "item": "ae2:quartz_glass"
+    },
+    "b": {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    },
+    "c": {
+      "item": "ae2:cell_component_4k"
+    },
+    "d": {
+      "item": "universa_cell:convergent_crystal"
+    },
+    "e": {
+      "item": "universa_cell:convergent_crystal"
+    }
+  },
+  "result": {
+    "item": "universa_cell:universal_cell_4k",
+    "count": 1
+  }
+}
